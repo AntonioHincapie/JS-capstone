@@ -1,3 +1,9 @@
 * {
   border: 0;
 }
+.links {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

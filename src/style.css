@@ -4,12 +4,22 @@
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 100px;
   background-color: brown;
 }
+
+#logo img {
+  height: 100px;
+}
+
 .links {
   list-style-type: none;
+  text-decoration: none;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 1em;
+  margin-right: 1em;
 }

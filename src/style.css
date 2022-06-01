@@ -1,3 +1,118 @@
 * {
   border: 0;
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: green;
+  width: 100vw;
+}
+
+#logo img {
+  height: 100px;
+  background-color: green;
+  margin-left: 40%;
+}
+
+.links {
+  list-style-type: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-right: 1em;
+}
+
+#footer {
+  bottom: 0;
+  padding-top: 20px;
+  width: 100%;
+  height: 50px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+  margin-top: 24px;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  margin: 5px 50px;
+  margin-top: 130px;
+}
+
+.name-heart {
+  display: flex;
+  margin-left: 47px;
+}
+
+.name {
+  margin-right: 10px;
+}
+
+.name-heart p {
+  width: fit-content;
+}
+
+.name-heart i {
+  width: fit-content;
+  margin-left: 20px;
+}
+
+.likes {
+  width: fit-content;
+  margin: auto 0 auto auto;
+  margin-right: 15px;
+}
+
+.comments,
+.reservations {
+  width: fit-content;
+  border: 2px solid black;
+  padding: 3px;
+  box-shadow: 2px 2px 2px black;
+  margin: 5px auto;
+  background-color: green;
+  color: white;
+}
+
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 129px;
+  margin-left: 130px;
+  margin-right: 130px;
+  margin-top: 96px;
+  margin-bottom: -65px;
+}
+
+#pokeimg {
+  width: 201px;
+}
+
+.poke-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
 }

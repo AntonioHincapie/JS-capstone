@@ -7,7 +7,7 @@ myLogo.src = Logo;
 headLogo.appendChild(myLogo);
 
 const pokeContainer = document.getElementById('poke_container');
-const pokemonsNumber = 50;
+const pokemonsNumber = 9;
 
 const createPokemonCard = (pokemon) => {
   const pokemonEl = document.createElement('div');

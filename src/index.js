@@ -1,5 +1,5 @@
 import './style.css';
-import Logo from './img/images.png';
+import Logo from './img/pokemonlogo.png';
 
 const headLogo = document.getElementById('logo');
 const myLogo = new Image();

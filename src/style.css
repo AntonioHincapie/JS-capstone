@@ -24,3 +24,12 @@ header {
   margin-right: 1em;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: brown;
+  color: #fff;
+  text-align: center;
+}

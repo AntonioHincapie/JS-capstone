@@ -6,37 +6,37 @@ const myLogo = new Image();
 myLogo.src = Logo;
 headLogo.appendChild(myLogo);
 
-const screen = document.querySelector('.card-container');
-const pokemons = ['squirtle', 'sandshrew', 'charmeleon', 'blastoise', 'metapod', 'rattata'];
+const pokeContainer = document.getElementById('poke_container');
+const pokemonsNumber = 50;
 
-function displayCards(data) {
-  const imgUrl = data.sprites.other['official-artwork'].front_default;
-  const { name } = data;
-  const card = document.createElement('div');
-  card.classList.add('card');
-  card.innerHTML = `<img id="poke-card" src=${imgUrl} alt="">
-            <div class="name-heart">
-            <p class="name">${name}</p>
-            <i class="fa-regular fa-heart"></i>
-            </div>
-            <div class="likes">5 likes</div>
-            <button class="comments">comments</button>
-            <button  class="reservations">Reservations</button>`;
-  screen.appendChild(card);
-}
+const createPokemonCard = (pokemon) => {
+  const pokemonEl = document.createElement('div');
+  pokemonEl.classList.add('pokemon');
+  const { name, sprites } = pokemon;
+  const pokeInnerHTML = `
+    <div class="img-container">
+      <img id="pokeimg" src="${sprites.other['official-artwork'].front_default}" alt="${name}" />
+      <h3 class="name">${name}</h3>
+      <button class="comments">comments</button>
+      <button class="reservations">Reservations</button>
+  
+    </div>
+    `;
+  pokemonEl.innerHTML = pokeInnerHTML;
+  pokeContainer.appendChild(pokemonEl);
+};
 
-function displayname(name) {
-  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      displayCards(data);
-    })
-    .catch((err) => {
-      console.log('Pokemon not found', err);
-    });
-}
+const getPokemon = async (id) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const res = await fetch(url);
+  const pokemon = await res.json();
+  createPokemonCard(pokemon);
+};
 
-pokemons.forEach((name) => {
-  displayname(name);
-});
+const fetchPokemons = async () => {
+  for (let i = 1; i <= pokemonsNumber; i += 1) {
+    getPokemon(i);
+  }
+};
+
+fetchPokemons();

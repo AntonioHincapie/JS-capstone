@@ -17,7 +17,7 @@ const createPokemonCard = (pokemon) => {
     <div class="img-container">
       <img id="pokeimg" src="${sprites.other['official-artwork'].front_default}" alt="${name}" />
       <h3 class="name">${name}</h3>
-      <button class="comments">comments</button>
+      <button id="comments">comments</button>
       <button class="reservations">Reservations</button>
   
     </div>
@@ -40,3 +40,5 @@ const fetchPokemons = async () => {
 };
 
 fetchPokemons();
+
+export default createPokemonCard;

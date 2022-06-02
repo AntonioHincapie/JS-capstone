@@ -5,8 +5,8 @@ const commentPopup = document.getElementById('commentPopup');
 const createPopup = (pokemon) => {
   const pokeUp = document.createElement('div');
   pokeUp.classList.add('popup');
-  const { 
-    name, sprites, types, abilities, moves 
+  const {
+    name, sprites, types, abilities, moves,
   } = pokemon;
   const pokeUpinnerHTML = `
   <div class="popup-container">
@@ -62,4 +62,4 @@ const displayPopup = async () => {
 
 displayPopup();
 
-// export default catchPokemon;
+export default catchPokemon;

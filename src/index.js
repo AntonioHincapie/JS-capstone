@@ -1,5 +1,6 @@
 import './style.css';
 import Logo from './img/images.png';
+import catchPokemon from './module/comment.js';
 
 const headLogo = document.getElementById('logo');
 const myLogo = new Image();
@@ -36,6 +37,7 @@ const getPokemon = async (id) => {
 const fetchPokemons = async () => {
   for (let i = 1; i <= pokemonsNumber; i += 1) {
     getPokemon(i);
+    catchPokemon(i);
   }
 };
 

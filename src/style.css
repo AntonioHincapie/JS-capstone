@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 header {
   position: fixed;
   display: flex;
@@ -114,5 +120,6 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: auto;
+  margin: 1em;
+  gap: 4em;
 }

@@ -47,13 +47,15 @@ const createPokemonCard = (pokemon) => {
         `;
     reserveEl.innerHTML = reserveInnerHTML;
     pokeReservation.appendChild(reserveEl);
-  };
-  reserveBtn.forEach((element) => {
-    element.addEventListener('click', () => {
-      createReserve();
+    reserveBtn.forEach((element) => {
+      element.addEventListener('click', () => {
 
+        console.log('ditto');
+
+      });
     });
-  });
+  };
+  
 };
 
 const getPokemon = async (id) => {

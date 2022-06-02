@@ -5,7 +5,9 @@ const commentPopup = document.getElementById('commentPopup');
 const createPopup = (pokemon) => {
   const pokeUp = document.createElement('div');
   pokeUp.classList.add('popup');
-  const { name, sprites, types, abilities, moves } = pokemon;
+  const { 
+    name, sprites, types, abilities, moves 
+  } = pokemon;
   const pokeUpinnerHTML = `
   <div class="popup-container">
       <span id="closePopup">&#x274c;</span>
@@ -36,7 +38,7 @@ const createPopup = (pokemon) => {
         </div>
       </div>
     </div>
-  `
+  `;
   pokeUp.innerHTML = pokeUpinnerHTML;
   commentPopup.appendChild(pokeUp);
 };
@@ -54,7 +56,6 @@ const displayPopup = async () => {
   commentBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       catchPokemon(e);
-      console.log('Hola');
     });
   });
 };

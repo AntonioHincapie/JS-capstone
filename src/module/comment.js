@@ -19,6 +19,29 @@ const hideComment = () => {
   });
 };
 
+const printComments = async () => {
+  const comment = [{
+    "comment": "Hello",
+    "creation_date": "2022-06-03",
+    "username": "Antonio",
+  },
+  {
+    "comment": "Bye",
+    "creation_date": "2022-06-03",
+    "username": "Antonio",
+  }];
+  const container = document.getElementById('allcomment');
+  container.innerHTML = null;
+  comment.forEach((cmt) => {
+    const name = cmt.username;
+    const date = cmt.creation_date;
+    const comentario = cmt.comment;
+    container.insertAdjacentHTML('afterbegin' ,`
+    <p class="comment"><strong>${date}</strong> ${name}: ${comentario}</p>
+    `);
+  })
+};
+
 const showComment = async (e) => {
   const commentPopup = document.getElementById('commentPopup');
   const pokemons = await getId(e.target.id);
@@ -65,9 +88,14 @@ const showComment = async (e) => {
           </div>
         </div>
       </div>
+      <div id="comment">
+        <h3 class="title">Comments</h3>
+        <div id="allcomment"></div>
+      </div>
     </div>
   `);
   hideComment();
+  printComments();
 };
 
 export default showComment;

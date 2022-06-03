@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 // Display reservations pop up with selected item's details
 
 const convertData = async () => {

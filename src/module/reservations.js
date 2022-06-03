@@ -1,4 +1,5 @@
-//Display reservations pop up with selected item's details
+// Display reservations pop up with selected item's details
+
 const convertData = async () => {
   const pokeList = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
   const datos = await fetch(pokeList);
@@ -41,30 +42,30 @@ const showReservation = async (e) => {
       <span id="closePopup">&#x274c;</span>
       <img id="pokeimg" src="${img}" alt="${name}"/>
       <div class="pokemonInfo">
-        <h3 class="name">${name[0].toUpperCase()+name.slice(1)}</h3><br>
+        <h3 class="name">${name[0].toUpperCase() + name.slice(1)}</h3><br>
         <div class="pokemon-description">
           <div class="type">
             <h4 class="title">Type</h4>
             <ul>
-              <li>${type[0].toUpperCase()+type.slice(1)}</li>
+              <li>${type[0].toUpperCase() + type.slice(1)}</li>
             </ul>
             <br>
           </div>
           <div class="abilities">
             <h4 class="title">Abilities</h4>
             <ul>
-              <li>${abilityOne[0].toUpperCase()+abilityOne.slice(1)}</li>
-              <li>${abilityTwo[0].toUpperCase()+abilityTwo.slice(1)}</li>
+              <li>${abilityOne[0].toUpperCase() + abilityOne.slice(1)}</li>
+              <li>${abilityTwo[0].toUpperCase() + abilityTwo.slice(1)}</li>
             </ul>
             <br>
           </div>
           <div class="moves">
             <h4 class="title">Moves</h4>
             <ul>
-              <li>${moveOne[0].toUpperCase()+moveOne.slice(1)}</li>
-              <li>${moveTwo[0].toUpperCase()+moveTwo.slice(1)}</li>
-              <li>${moveThree[0].toUpperCase()+moveThree.slice(1)}</li>
-              <li>${moveFour[0].toUpperCase()+moveFour.slice(1)}</li>
+              <li>${moveOne[0].toUpperCase() + moveOne.slice(1)}</li>
+              <li>${moveTwo[0].toUpperCase() + moveTwo.slice(1)}</li>
+              <li>${moveThree[0].toUpperCase() + moveThree.slice(1)}</li>
+              <li>${moveFour[0].toUpperCase() + moveFour.slice(1)}</li>
             </ul>
             <br>
           </div>

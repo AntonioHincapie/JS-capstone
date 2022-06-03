@@ -112,7 +112,7 @@ header {
 
 #closePopup {
   grid-column: 1/4;
-  text-align: end; 
+  text-align: end;
 }
 
 #closePopup:hover {

@@ -23,7 +23,7 @@ const counter = async (e) => {
   const comment = await commentData(e);
   const commentQuantity = comment.length;
   return commentQuantity;
-}
+};
 
 const hideComment = () => {
   const commentPopup = document.getElementById('commentPopup');

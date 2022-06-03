@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 const convertData = async () => {
   const pokeList = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
   const datos = await fetch(pokeList);
@@ -11,12 +13,32 @@ const getId = async (id) => {
   return pokeId.json();
 };
 
+const commentData = async (e) => {
+  const commentList = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/comments?item_id=item${e.target.id}`;
+  const datos = await fetch(commentList);
+  return datos.json();
+};
+
 const hideComment = () => {
   const commentPopup = document.getElementById('commentPopup');
   const closePopup = document.getElementById('closePopup');
   closePopup.addEventListener('click', () => {
     commentPopup.style.display = 'none';
     window.location.reload();
+  });
+};
+
+const printComments = async (e) => {
+  const comment = await commentData(e);
+  const container = document.getElementById('allcomment');
+  container.innerHTML = null;
+  comment.forEach((cmt) => {
+    const name = cmt.username;
+    const date = cmt.creation_date;
+    const comentario = cmt.comment;
+    container.insertAdjacentHTML('afterbegin', `
+    <p class="comment"><strong>${date}</strong> ${name}: ${comentario}</p>
+    `);
   });
 };
 
@@ -66,9 +88,49 @@ const showComment = async (e) => {
           </div>
         </div>
       </div>
+      <div id="comment">
+        <h3 class="title">Comments</h3>
+        <div id="allcomment"></div>
+        <div id="formcontainer">
+          <h3 class="title">Add a comment</h3>
+          <form id="commentform">
+            <input id="username" type="text" placeholder="Your name" requiered>
+            <textarea id="commentinput" placeholder="Your comment" requiered></textarea>
+            <button type="submit" class="commentsubmit" id="${e.target.id}">Comment</button>
+          </form>
+        </div>
+      </div>
     </div>
   `);
   hideComment();
+  printComments(e);
+  submitComment(e);
+};
+
+const submitComment = async () => {
+  const commentForm = document.getElementById('commentform');
+  const commentSubmit = document.querySelector('.commentsubmit');
+  const commentList = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/comments';
+  commentSubmit.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('username');
+    const comment = document.getElementById('commentinput');
+    const id = `item${e.target.id}`;
+    await fetch(commentList, {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: id,
+        username: name.value,
+        comment: comment.value,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    printComments(e);
+    commentForm.reset();
+    showComment(e);
+  });
 };
 
 export default showComment;

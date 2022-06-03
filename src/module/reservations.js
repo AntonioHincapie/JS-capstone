@@ -97,12 +97,12 @@ const showReservation = async (e) => {
         <h3 class="title">Reservations (2)</h3><br>
         <div id="allreservations"></div>
       </div>
-       <form class="reservation-form">
+       <form id="reservation-form">
         <h3 class="title">Add a reservation</h3><br>
-        <input class="name" type:"text" placeholder="Your name" autofocus><br>
-        <input class="date_start" type:"date" placeholder="Start date"><br>
-        <input class="date_finish" type:"date" placeholder="End date"><br>
-        <button class="addReservation">Reserve</button>     
+        <input id="user_name" type:"text" placeholder="Your name" autofocus><br>
+        <input id="date_start" type:"date" placeholder="Start date"><br>
+        <input id="date_end" type:"date" placeholder="End date"><br>
+        <button type="submit" class="addReservation id="${e.target.id}">Reserve</button>
       </form>
     </div>
   `);

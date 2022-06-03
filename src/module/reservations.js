@@ -13,6 +13,12 @@ const getId = async (id) => {
   return pokeId.json();
 };
 
+const reservationData = async (e) => {
+  const reservationList = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/reservations?item_id=item${e.target.id}`;
+  const datos = await fetch(reservationList);
+  return datos.json();
+};
+
 const hideReservation = () => {
   const reservationPopup = document.getElementById('poke_reservation');
   const closePopup = document.getElementById('closePopup');
@@ -24,25 +30,16 @@ const hideReservation = () => {
 
 // Display reservations for a given item on the Reservations pop - up
 
-const printReservations = async () => {
-  const reservation = [{
-    user_name: 'Francisco',
-    date_start: '2022-05-30',
-    date_finish: '2022-06-01',
-  },
-  {
-    username: 'Javier',
-    date_start: '2022-06-02',
-    date_finish: '2022-06-03',
-  }];
+const printReservations = async (e) => {
+  const reservation = await reservationData(e);
   const containerReservations = document.getElementById('allreservations');
   containerReservations.innerHTML = null;
   reservation.forEach((rsv) => {
-    const username = rsv.user_name;
+    const username = rsv.username;
     const dateStart = rsv.date_start;
-    const dateFinish = rsv.date_finish;
+    const dateEnd = rsv.date_end;
     containerReservations.insertAdjacentHTML('afterbegin', `
-    <p class="reservation">${dateStart} - ${dateFinish} by: ${username}</p>
+    <p class="reservation">${dateStart} - ${dateEnd} by: ${username}</p>
     `);
   });
 };
@@ -100,10 +97,48 @@ const showReservation = async (e) => {
         <h3 class="title">Reservations (2)</h3><br>
         <div id="allreservations"></div>
       </div>
+       <form id="reservation-form">
+        <h3 class="title">Add a reservation</h3><br>
+        <input id="user_name" type:"text" placeholder="Your name" autofocus><br>
+        <input id="date_start" type:"date" placeholder="Start date"><br>
+        <input id="date_end" type:"date" placeholder="End date"><br>
+        <button type="submit" class="addReservation id="${e.target.id}">Reserve</button>
+      </form>
     </div>
   `);
   hideReservation();
   printReservations();
+  submitReservation();
+};
+
+// Create feature: add new reservation
+
+const submitReservation = async () => {
+  const reservationForm = document.getElementById('reservation-form');
+  const reservationSubmit = document.querySelector('.addReservation');
+  const reservationList = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/reservations';
+  reservationSubmit.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('user_name');
+    const dateStart = document.getElementById('date_start');
+    const dateEnd = document.getElementById('date_end');
+    const id = `item${e.target.id}`;
+    await fetch(reservationList, {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: id,
+        username: name.value,
+        date_start: dateStart.value,
+        date_end: dateEnd.value,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    printReservations(e);
+    reservationForm.reset();
+    showReservation(e);
+  });
 };
 
 export default showReservation;

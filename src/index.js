@@ -31,4 +31,3 @@ const popUp = async () => {
 
 printPokemons();
 popUp();
-popUpReserve();

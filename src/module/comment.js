@@ -19,7 +19,7 @@ const hideComment = () => {
   });
 };
 
-export const showComment = async (e) => {
+const showComment = async (e) => {
   const commentPopup = document.getElementById('commentPopup');
   const pokemons = await getId(e.target.id);
   const { name } = pokemons;
@@ -39,26 +39,26 @@ export const showComment = async (e) => {
       <span id="closePopup">&#x274c;</span>
       <img id="pokeimg" src="${img}" alt="${name}"/>
       <div class"pokemonInfo">
-        <h3 class="name">${name}</h3>
+        <h3 class="name">${name.toUpperCase()}</h3>
         <div class="pokemon-description">
           <div class="type">
             <h4 class="title">Type</h4>
-            <p>${type}</p>
+            <p>${type.toUpperCase()}</p>
           </div>
           <div class="abilities">
             <h4 class="title">Abilities</h4>
             <ul>
-              <li>${abilityOne}</li>
-              <li>${abilityTwo}</li>
+              <li>${abilityOne.toUpperCase()}</li>
+              <li>${abilityTwo.toUpperCase()}</li>
             </ul>
           </div>
           <div class="moves">
             <h4 class="title">Moves</h4>
             <ul>
-              <li>${moveOne}</li>
-              <li>${moveTwo}</li>
-              <li>${moveThree}</li>
-              <li>${moveFour}</li>
+              <li>${moveOne.toUpperCase()}</li>
+              <li>${moveTwo.toUpperCase()}</li>
+              <li>${moveThree.toUpperCase()}</li>
+              <li>${moveFour.toUpperCase()}</li>
             </ul>
           </div>
         </div>
@@ -67,3 +67,5 @@ export const showComment = async (e) => {
   `);
   hideComment();
 };
+
+export default showComment;

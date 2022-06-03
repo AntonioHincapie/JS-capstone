@@ -1,7 +1,7 @@
 import './style.css';
 import Logo from './img/images.png';
-import { printPokemons } from './module/homepage.js';
-import { showComment } from './module/comment.js';
+import printPokemons from './module/homepage.js';
+import showComment from './module/comment.js';
 
 const headLogo = document.getElementById('logo');
 const myLogo = new Image();
@@ -14,7 +14,7 @@ const popUp = async () => {
   commetBtn.forEach((btn) => {
     btn.addEventListener('click', async (e) => {
       const commentPopup = document.getElementById('commentPopup');
-      commentPopup.style.display = 'block';
+      commentPopup.style.display = 'flex';
       showComment(e);
     });
   });

@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+
 const pokeContainer = document.getElementById('poke_container');
 const pokeList = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
 let pokemons = [];
@@ -20,12 +22,12 @@ const pokemonInfo = async () => {
   return pokemons;
 };
 
-export const printPokemons = async () => {
+const printPokemons = async () => {
   const pokemons = await pokemonInfo();
   pokeContainer.innerHTML = '';
   for (let i = 0; i < pokemons.length; i += 1) {
     pokeContainer.innerHTML += `
-    <div class="img-container">
+    <div class="container">
       <img id="pokeimg" src="${pokemons[i].img}" alt="${pokemons[i].name}"/>
       <h3 class="name">${pokemons[i].name.toUpperCase()}</h3>
       <button class="comments" id="${pokemons[i].id}">Comments</button>
@@ -33,3 +35,5 @@ export const printPokemons = async () => {
     </div>`;
   }
 };
+
+export default printPokemons;

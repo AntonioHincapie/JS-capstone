@@ -26,7 +26,7 @@ const hideReservation = () => {
 
 const printReservations = async () => {
   const reservation = [{
-    username: 'Francisco',
+    user_name: 'Francisco',
     date_start: '2022-05-30',
     date_finish: '2022-06-01',
   },
@@ -38,7 +38,7 @@ const printReservations = async () => {
   const containerReservations = document.getElementById('allreservations');
   containerReservations.innerHTML = null;
   reservation.forEach((rsv) => {
-    const username = rsv.username;
+    const username = rsv.user_name;
     const dateStart = rsv.date_start;
     const dateFinish = rsv.date_finish;
     containerReservations.insertAdjacentHTML('afterbegin', `

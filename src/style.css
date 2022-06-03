@@ -123,3 +123,12 @@ header {
   margin: 1em;
   gap: 4em;
 }
+
+.poke_reservation {
+  width: 30%;
+  height: auto;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  background: greenyellow;
+}

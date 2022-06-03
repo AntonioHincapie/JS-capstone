@@ -1,5 +1,5 @@
 import './style.css';
-import Logo from './img/images.png';
+import Logo from './img/pokemonlogo.png';
 import printPokemons from './module/homepage.js';
 import showComment from './module/comment.js';
 import showReservation from './module/reservations.js';

@@ -38,7 +38,7 @@ const showComment = async (e) => {
   <div class="popup-container">
       <span id="closePopup">&#x274c;</span>
       <img id="pokeimg" src="${img}" alt="${name}"/>
-      <div class"pokemonInfo">
+      <div class="pokemonInfo">
         <h3 class="name">${name.toUpperCase()}</h3>
         <div class="pokemon-description">
           <div class="type">

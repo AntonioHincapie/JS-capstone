@@ -22,7 +22,7 @@ header {
 }
 
 #logo img {
-  height: 100px;
+  height: 80px;
   background-color: green;
   margin-left: 40%;
 }
@@ -42,7 +42,6 @@ header {
 }
 
 #footer {
-  position: fixed;
   bottom: 0;
   padding-top: 20px;
   width: 100%;
@@ -104,18 +103,34 @@ header {
 }
 
 .popup-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto;
   flex-direction: column;
-  background-color: green;
+  background-color: greenyellow;
   gap: 1em;
   padding: 2em;
+  border-radius: 10px;
 }
 
 #closePopup {
-  position: relative;
-  left: 90%;
+  grid-column: 1/4;
+  text-align: end; 
 }
 
 #closePopup:hover {
   cursor: pointer;
+}
+
+.pokemonInfo {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-container>#pokeimg {
+  background-image: url(./img/images\ \(1\).png);
+  background-size: contain;
+  background-position: center;
+  border-radius: 100px;
 }

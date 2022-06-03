@@ -1,43 +1,72 @@
-import createPokemonCard from '../index.js';
-
-const reserveBtn = document.querySelectorAll('.reservations');
-const pokeReservation = document.querySelector('.poke_reservation');
 //Display reservations pop up with selected item's details
-let createReserve = () => {
-  const reserveEl = document.createElement('div');
-  reserveEl.classList.add('poke');
-  const reserveInnerHTML = `
-        <div class="img-container">
-          <img id="pokeimg" src="${sprites.other['official-artwork'].front_default}" alt="${name}" />
-          <h3 class="name">${name}</h3>
-          <ul class="atributes">
-            <li>Specie: ${species.name}</li>
-            <li>Height: ${height}</li>
-            <li>Weight: ${weight}</li>
-            <li>ID: ${id}</li>
-          </ul>
-        </div>
-        `;
-  reserveEl.innerHTML = reserveInnerHTML;
-  pokeReservation.appendChild(reserveEl);
+const convertData = async () => {
+  const pokeList = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
+  const datos = await fetch(pokeList);
+  return datos.json();
 };
 
-
-const catchPokemon = async (id) => {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  const res = await fetch(url);
-  const pokemon = await res.json();
-  createPopup(pokemon);
+const getId = async (id) => {
+  const datos = await convertData();
+  const dataId = datos.results[id - 1].url;
+  const pokeId = await fetch(dataId);
+  return pokeId.json();
 };
 
-const displayPopup = async () => {
-  createPokemonCard();
-  reserveBtn.forEach((element) => {
-    element.addEventListener('click', () => {
-      catchPokemon(e);
-      createReserve();
-    });
+const hideReservation = () => {
+  const reservationPopup = document.getElementById('poke_reservation');
+  const closePopup = document.getElementById('closePopup');
+  closePopup.addEventListener('click', () => {
+    reservationPopup.style.display = 'none';
   });
 };
 
-displayPopup();
+const showReservation = async (e) => {
+  const reservationPopup = document.getElementById('poke_reservation');
+  const pokemons = await getId(e.target.id);
+  const { name } = pokemons;
+  const img = pokemons.sprites.other.home.front_default;
+  const type = pokemons.types[0].type.name;
+  const { abilities } = pokemons;
+  const abilityOne = abilities[0].ability.name;
+  const abilityTwo = abilities[1].ability.name;
+  const { moves } = pokemons;
+  const moveOne = moves[0].move.name;
+  const moveTwo = moves[1].move.name;
+  const moveThree = moves[2].move.name;
+  const moveFour = moves[3].move.name;
+  reservationPopup.innerHTML = null;
+  reservationPopup.insertAdjacentHTML('afterbegin', `
+  <div class="popup-container">
+      <span id="closePopup">&#x274c;</span>
+      <img id="pokeimg" src="${img}" alt="${name}"/>
+      <div class"pokemonInfo">
+        <h3 class="name">${name.toUpperCase()}</h3>
+        <div class="pokemon-description">
+          <div class="type">
+            <h4 class="title">Type</h4>
+            <p>${type.toUpperCase()}</p>
+          </div>
+          <div class="abilities">
+            <h4 class="title">Abilities</h4>
+            <ul>
+              <li>${abilityOne.toUpperCase()}</li>
+              <li>${abilityTwo.toUpperCase()}</li>
+            </ul>
+          </div>
+          <div class="moves">
+            <h4 class="title">Moves</h4>
+            <ul>
+              <li>${moveOne.toUpperCase()}</li>
+              <li>${moveTwo.toUpperCase()}</li>
+              <li>${moveThree.toUpperCase()}</li>
+              <li>${moveFour.toUpperCase()}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
+  hideReservation();
+};
+
+export default showReservation;

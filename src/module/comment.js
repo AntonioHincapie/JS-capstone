@@ -16,6 +16,7 @@ const hideComment = () => {
   const closePopup = document.getElementById('closePopup');
   closePopup.addEventListener('click', () => {
     commentPopup.style.display = 'none';
+    window.location.reload();
   });
 };
 

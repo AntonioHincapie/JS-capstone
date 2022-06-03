@@ -105,7 +105,6 @@ header {
 .popup-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  flex-direction: column;
   background-color: greenyellow;
   gap: 1em;
   padding: 2em;
@@ -128,7 +127,7 @@ header {
   align-items: center;
 }
 
-.popup-container>#pokeimg {
+.popup-container > #pokeimg {
   background-image: url(./img/images\ \(1\).png);
   background-size: contain;
   background-position: center;

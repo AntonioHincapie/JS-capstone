@@ -17,6 +17,7 @@ const hideReservation = () => {
   const closePopup = document.getElementById('closePopup');
   closePopup.addEventListener('click', () => {
     reservationPopup.style.display = 'none';
+    window.location.reload();
   });
 };
 

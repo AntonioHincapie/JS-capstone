@@ -111,7 +111,7 @@ header {
 
 #closePopup {
   grid-column: 1/4;
-  text-align: end; 
+  text-align: end;
 }
 
 #closePopup:hover {
@@ -125,8 +125,8 @@ header {
   align-items: center;
 }
 
-.popup-container>#pokeimg {
-  background-image: url(./img/images\ \(1\).png);
+.popup-container > #pokeimg {
+  background-image: url(./img/images1.png);
   background-size: contain;
   background-position: center;
   border-radius: 100px;

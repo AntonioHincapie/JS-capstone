@@ -43,7 +43,9 @@ const showComment = async (e) => {
         <div class="pokemon-description">
           <div class="type">
             <h4 class="title">Type</h4>
-            <p>${type[0].toUpperCase() + type.slice(1)}</p>
+            <ul>
+              <li>${type[0].toUpperCase() + type.slice(1)}</li>
+            </ul>
           </div>
           <div class="abilities">
             <h4 class="title">Abilities</h4>

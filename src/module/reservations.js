@@ -37,11 +37,11 @@ const printReservations = async (e) => {
   const containerReservations = document.getElementById('allreservations');
   containerReservations.innerHTML = null;
   reservation.forEach((rsv) => {
-    const username = rsv.username;
+    const name = rsv.username;
     const dateStart = rsv.date_start;
     const dateEnd = rsv.date_end;
     containerReservations.insertAdjacentHTML('afterbegin', `
-    <p class="reservation">${dateStart} - ${dateEnd} by: ${username}</p>
+    <p class="reservation">${dateStart} - ${dateEnd} by: ${name}</p>
     `);
   });
 };

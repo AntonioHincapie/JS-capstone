@@ -8,11 +8,13 @@ const myLogo = new Image();
 myLogo.src = Logo;
 headLogo.appendChild(myLogo);
 
-const popUp = async ()=> {
+const popUp = async () => {
   await printPokemons();
   const commetBtn = document.querySelectorAll('.comments');
   commetBtn.forEach((btn) => {
     btn.addEventListener('click', async (e) => {
+      const commentPopup = document.getElementById('commentPopup');
+      commentPopup.style.display = 'block';
       showComment(e);
     });
   });

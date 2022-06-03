@@ -94,12 +94,12 @@ header {
 
 #commentPopup {
   position: fixed;
-  top: 1em;
   height: 100vh;
   width: 100vw;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .popup-container {

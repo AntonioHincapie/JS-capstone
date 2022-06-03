@@ -29,7 +29,7 @@ const printPokemons = async () => {
     pokeContainer.innerHTML += `
     <div class="container">
       <img id="pokeimg" src="${pokemons[i].img}" alt="${pokemons[i].name}"/>
-      <h3 class="name">${pokemons[i].name.toUpperCase()}</h3>
+      <h3 class="name">${pokemons[i].name[0].toUpperCase() + pokemons[i].name.slice(1)}</h3>
       <button class="comments" id="${pokemons[i].id}">Comments</button>
       <button class="reservations" id="${pokemons[i].id}">Reservations</button>
     </div>`;

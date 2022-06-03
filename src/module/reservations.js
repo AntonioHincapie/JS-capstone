@@ -22,6 +22,31 @@ const hideReservation = () => {
   });
 };
 
+// Display reservations for a given item on the Reservations pop - up
+
+const printReservations = async () => {
+  const reservation = [{
+    username: 'Francisco',
+    date_start: '2022-05-30',
+    date_finish: '2022-06-01',
+  },
+  {
+    username: 'Javier',
+    date_start: '2022-06-02',
+    date_finish: '2022-06-03',
+  }];
+  const containerReservations = document.getElementById('allreservations');
+  containerReservations.innerHTML = null;
+  reservation.forEach((reservation) => {
+    const username = reservation.username;
+    const date_start = reservation.date_start;
+    const date_finish = reservation.date_finish;
+    containerReservations.insertAdjacentHTML('afterbegin', `
+    <p class="reservation">${date_start} - ${date_finish} by: ${username}</p>
+    `);
+  });
+};
+
 const showReservation = async (e) => {
   const reservationPopup = document.getElementById('poke_reservation');
   const pokemons = await getId(e.target.id);
@@ -71,9 +96,14 @@ const showReservation = async (e) => {
           </div>
         </div>
       </div>
+      <div id="reservation">
+        <h3 class="title">Reservations (2)</h3><br>
+        <div id="allreservations"></div>
+      </div>
     </div>
   `);
   hideReservation();
+  printReservations();
 };
 
 export default showReservation;

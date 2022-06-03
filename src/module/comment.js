@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 const convertData = async () => {
   const pokeList = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
   const datos = await fetch(pokeList);
@@ -16,7 +18,6 @@ const commentData = async (e) => {
   const datos = await fetch(commentList);
   return datos.json();
 };
-
 
 const hideComment = () => {
   const commentPopup = document.getElementById('commentPopup');

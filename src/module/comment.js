@@ -21,14 +21,14 @@ const hideComment = () => {
 
 const printComments = async () => {
   const comment = [{
-    "comment": "Hello",
-    "creation_date": "2022-06-03",
-    "username": "Antonio",
+    comment: 'Hello',
+    creation_date: '2022-06-03',
+    username: 'Antonio',
   },
   {
-    "comment": "Bye",
-    "creation_date": "2022-06-03",
-    "username": "Antonio",
+    comment: 'Bye',
+    creation_date: '2022-06-03',
+    username: 'Antonio',
   }];
   const container = document.getElementById('allcomment');
   container.innerHTML = null;
@@ -36,10 +36,10 @@ const printComments = async () => {
     const name = cmt.username;
     const date = cmt.creation_date;
     const comentario = cmt.comment;
-    container.insertAdjacentHTML('afterbegin' ,`
+    container.insertAdjacentHTML('afterbegin', `
     <p class="comment"><strong>${date}</strong> ${name}: ${comentario}</p>
     `);
-  })
+  });
 };
 
 const showComment = async (e) => {

@@ -96,14 +96,14 @@ const showComment = async (e) => {
         </div>
       </div>
       <div id="comment">
-        <h3 class="title">Comments (${counterComment || 0})</h3>
+        <h3 class="title">Comments (${counterComment || 0})</h3><br>
         <div id="allcomment"></div>
-        <div id="formcontainer">
-          <h3 class="title">Add a comment</h3>
+        <div id="formcontainer"><br>
+          <h3 class="title">Add a comment</h3><br>
           <form id="commentform">
-            <input id="username" type="text" placeholder="Your name" requiered>
-            <textarea id="commentinput" placeholder="Your comment" requiered></textarea>
-            <button type="submit" class="commentsubmit" id="${e.target.id}">Comment</button>
+            <input id="username" type="text" placeholder="Your name" requiered><br>
+            <textarea id="commentinput" placeholder="Your comment" requiered></textarea><br>
+            <button type="submit" class="commentsubmit" id="${e.target.id}">Comment</button><br>
           </form>
         </div>
       </div>

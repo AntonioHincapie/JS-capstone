@@ -11,7 +11,7 @@ const convertData = async (API) => {
   return data;
 };
 
-const pokemonInfo = async () => {
+export const pokemonInfo = async () => {
   const data = await convertData(pokeList);
   pokemons = data.results;
   for (let i = 0; i < pokemons.length; i += 1) {

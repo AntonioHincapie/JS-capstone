@@ -42,12 +42,12 @@ const addLikes = async (btn) => {
     body: JSON.stringify({ item_id: btn.id }),
     headers: {
       'Content-Type': 'application/json',
-    }
+    },
   });
   btn.classList.remove('fa-regular');
   btn.classList.add('fa');
   btn.setAttribute('disabled', '');
-  const counter = document.getElementById(`${btn.id}counter`)
+  const counter = document.getElementById(`${btn.id}counter`);
   const likes = counter.innerHTML.split(' ');
   likes[0] = Number(likes[0]) + 1;
   counter.innerHTML = likes.join(' ');

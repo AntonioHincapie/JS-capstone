@@ -1,8 +1,8 @@
-const fs = require('fs');
+import { readFileSync } from 'fs';
 
 describe('Counter of comments', () => {
   beforeAll(() => {
-    document.body.innerHTML = fs.readFileSync('dist/index.html');
+    document.body.innerHTML = readFileSync('dist/index.html');
   });
   test('Number of comments', () => {
     const popUp = document.getElementById('commentPopup');
@@ -12,6 +12,6 @@ describe('Counter of comments', () => {
       counter.innerHTML = `Comments (${comment.length})`;
     };
     commentCouter(['C1', 'C2', 'C3', 'C4']);
-    expect(counter.innerHTML).toEqual('Comments (4)')
+    expect(counter.innerHTML).toEqual('Comments (4)');
   });
 });

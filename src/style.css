@@ -37,6 +37,10 @@ header {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .links a {
   text-decoration: none;
   color: white;
@@ -71,10 +75,6 @@ header {
 
 #pokeimg {
   width: 14em;
-}
-
-.name {
-  margin-right: 10px;
 }
 
 .comments,
@@ -113,6 +113,7 @@ header {
 
 .name {
   font-size: 30px;
+  margin-right: 10px;
 }
 
 #closePopup {
@@ -136,10 +137,6 @@ header {
   background-size: contain;
   background-position: center;
   border-radius: 100px;
-}
-
-a {
-  text-decoration: none;
 }
 
 /* Reservation form */

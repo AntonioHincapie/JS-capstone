@@ -3,7 +3,6 @@ import Logo from './img/pokemonlogo.png';
 import printPokemons from './module/homepage.js';
 import showComment from './module/comment.js';
 import showReservation from './module/reservations.js';
-import { addLike, updateLikes } from './module/add-likes.js';
 
 const headLogo = document.getElementById('logo');
 const myLogo = new Image();
@@ -29,14 +28,6 @@ const popUp = async () => {
     });
   });
 };
-
-window.addEventListener('click', (event) => {
-  if (event.target.classList.contains('fa-heart')) {
-    const itemName = event.target.className.split(' ')[0];
-    addLike(itemName);
-    updateLikes(itemName);
-  }
-});
 
 printPokemons();
 popUp();

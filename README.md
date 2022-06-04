@@ -13,6 +13,24 @@ This is the first time at Microverse that we will build a project in a group. Ap
 
 The JavaScript capstone project is about building our own web application based on an external API. You have select an API [Pokeapi](https://pokeapi.co/): data about the Pokémon world that provides data to build the webapp around it. The webapp have 3 user interfaces.
 
+### [Clone it](https://github.com/AntonioHincapie/js-capstone.git)
+
+```
+npm init -y
+```
+
+```
+npm install
+```
+
+```
+npm run build
+```
+
+```
+npm start
+```
+
 ## Live Demo
 
 [PokeDesk](https://antoniohincapie.github.io/js-capstone/)<br>

@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* Home Page CSS */

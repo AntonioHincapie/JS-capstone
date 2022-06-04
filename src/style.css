@@ -57,7 +57,7 @@ header {
 
 .poke-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18em, 3fr));
+  grid-template-columns: repeat(3, auto);
   margin: 1em;
   gap: 4em;
 }
@@ -111,6 +111,10 @@ header {
   border-radius: 10px;
 }
 
+.name {
+  font-size: 30px;
+}
+
 #closePopup {
   grid-column: 1/4;
   text-align: end;
@@ -132,6 +136,10 @@ header {
   background-size: contain;
   background-position: center;
   border-radius: 100px;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Reservation form */

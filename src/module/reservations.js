@@ -21,6 +21,14 @@ const reservationData = async (e) => {
   return datos.json();
 };
 
+// Add reservations counter.
+
+const counter = async (e) => {
+  const reservation = await reservationData(e);
+  const reservationQuantity = reservation.length;
+  return reservationQuantity;
+};
+
 const hideReservation = () => {
   const reservationPopup = document.getElementById('poke_reservation');
   const closePopup = document.getElementById('closePopup');
@@ -60,6 +68,7 @@ const showReservation = async (e) => {
   const moveTwo = moves[1].move.name;
   const moveThree = moves[2].move.name;
   const moveFour = moves[3].move.name;
+  const counterReservation = await counter(e);
   reservationPopup.innerHTML = null;
   reservationPopup.insertAdjacentHTML('afterbegin', `
   <div class="popup-container">
@@ -96,12 +105,12 @@ const showReservation = async (e) => {
         </div>
       </div>
       <div id="reservation">
-        <h3 class="title">Reservations (2)</h3><br>
+        <h3 class="title">Reservations (${counterReservation || 0})</h3><br>
         <div id="allreservations"></div>
       </div>
        <form id="reservation-form">
         <h3 class="title">Add a reservation</h3><br>
-        <input id="user_name" type:"text" placeholder="Your name" autofocus><br>
+        <input id="user_name" type:"text" placeholder="Your name"><br>
         <input id="date_start" type:"date" placeholder="Start date"><br>
         <input id="date_end" type:"date" placeholder="End date"><br>
         <button type="submit" class="addReservation id="${e.target.id}">Reserve</button>
@@ -109,8 +118,8 @@ const showReservation = async (e) => {
     </div>
   `);
   hideReservation();
-  printReservations();
-  submitReservation();
+  printReservations(e);
+  submitReservation(e);
 };
 
 // Create feature: add new reservation

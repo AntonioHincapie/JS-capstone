@@ -13,7 +13,7 @@ const popUp = async () => {
   await printPokemons();
   const commetBtn = document.querySelectorAll('.comments');
   commetBtn.forEach((btn) => {
-    btn.addEventListener('click', async (e) => {
+    btn.addEventListener('click', (e) => {
       const commentPopup = document.getElementById('commentPopup');
       commentPopup.style.display = 'flex';
       showComment(e);
@@ -21,7 +21,7 @@ const popUp = async () => {
   });
   const reservationBtn = document.querySelectorAll('.reservations');
   reservationBtn.forEach((btn) => {
-    btn.addEventListener('click', async (e) => {
+    btn.addEventListener('click', (e) => {
       const reservationPopup = document.getElementById('poke_reservation');
       reservationPopup.style.display = 'flex';
       showReservation(e);

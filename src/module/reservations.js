@@ -34,6 +34,7 @@ const hideReservation = () => {
 
 const printReservations = async (e) => {
   const reservation = await reservationData(e);
+  console.log(reservationData(e))
   const containerReservations = document.getElementById('allreservations');
   containerReservations.innerHTML = null;
   reservation.forEach((rsv) => {
@@ -101,7 +102,7 @@ const showReservation = async (e) => {
       </div>
        <form id="reservation-form">
         <h3 class="title">Add a reservation</h3><br>
-        <input id="user_name" type:"text" placeholder="Your name" autofocus><br>
+        <input id="user_name" type:"text" placeholder="Your name"><br>
         <input id="date_start" type:"date" placeholder="Start date"><br>
         <input id="date_end" type:"date" placeholder="End date"><br>
         <button type="submit" class="addReservation id="${e.target.id}">Reserve</button>
@@ -109,8 +110,8 @@ const showReservation = async (e) => {
     </div>
   `);
   hideReservation();
-  printReservations();
-  submitReservation();
+  printReservations(e);
+  submitReservation(e);
 };
 
 // Create feature: add new reservation

@@ -16,7 +16,7 @@ const getId = async (id) => {
 };
 
 const reservationData = async (e) => {
-  let reservationList = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/reservations?item_id=item${e.target.id}`;
+  const reservationList = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/reservations?item_id=item${e.target.id}`;
   const datos = await fetch(reservationList);
   return datos.json();
 };
@@ -42,7 +42,6 @@ const hideReservation = () => {
 
 const printReservations = async (e) => {
   const reservation = await reservationData(e);
-  console.log(reservationData(e))
   const containerReservations = document.getElementById('allreservations');
   containerReservations.innerHTML = null;
   reservation.forEach((rsv) => {

@@ -79,4 +79,12 @@ const printPokemons = async () => {
   likeBtn();
 };
 
+const pokeCounter = async () => {
+  const pokemon = await pokemonInfo();
+  const pokemonCounter = document.getElementById('home-counter');
+  pokemonCounter.innerHTML = `[ ${pokemon.length} ] Pokemons`;
+};
+
+pokeCounter();
+
 export default printPokemons;

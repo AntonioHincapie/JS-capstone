@@ -37,6 +37,10 @@ header {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .links a {
   text-decoration: none;
   color: white;
@@ -57,7 +61,7 @@ header {
 
 .poke-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18em, 3fr));
+  grid-template-columns: repeat(3, auto);
   margin: 1em;
   gap: 4em;
 }
@@ -71,10 +75,6 @@ header {
 
 #pokeimg {
   width: 14em;
-}
-
-.name {
-  margin-right: 10px;
 }
 
 .comments,
@@ -109,6 +109,11 @@ header {
   gap: 1em;
   padding: 2em;
   border-radius: 10px;
+}
+
+.name {
+  font-size: 30px;
+  margin-right: 10px;
 }
 
 #closePopup {

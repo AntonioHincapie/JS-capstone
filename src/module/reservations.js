@@ -54,7 +54,7 @@ const printReservations = async (e) => {
   });
 };
 
-  const showReservation = async (e) => {
+const showReservation = async (e) => {
   const reservationPopup = document.getElementById('poke_reservation');
   const pokemons = await getId(e.target.id);
   const { name } = pokemons;

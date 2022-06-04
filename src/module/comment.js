@@ -19,6 +19,12 @@ const commentData = async (e) => {
   return datos.json();
 };
 
+const counter = async (e) => {
+  const comment = await commentData(e);
+  const commentQuantity = comment.length;
+  return commentQuantity;
+};
+
 const hideComment = () => {
   const commentPopup = document.getElementById('commentPopup');
   const closePopup = document.getElementById('closePopup');
@@ -56,6 +62,7 @@ const showComment = async (e) => {
   const moveTwo = moves[1].move.name;
   const moveThree = moves[2].move.name;
   const moveFour = moves[3].move.name;
+  const counterComment = await counter(e);
   commentPopup.innerHTML = null;
   commentPopup.insertAdjacentHTML('afterbegin', `
   <div class="popup-container">
@@ -89,7 +96,7 @@ const showComment = async (e) => {
         </div>
       </div>
       <div id="comment">
-        <h3 class="title">Comments</h3>
+        <h3 class="title">Comments (${counterComment || 0})</h3>
         <div id="allcomment"></div>
         <div id="formcontainer">
           <h3 class="title">Add a comment</h3>

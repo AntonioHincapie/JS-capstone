@@ -16,9 +16,17 @@ const getId = async (id) => {
 };
 
 const reservationData = async (e) => {
-  const reservationList = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/reservations?item_id=item${e.target.id}`;
+  let reservationList = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RI0oSx45l9C27N7elyXx/reservations?item_id=item${e.target.id}`;
   const datos = await fetch(reservationList);
   return datos.json();
+};
+
+// Add reservations counter.
+
+const counter = async (e) => {
+  const reservation = await reservationData(e);
+  const reservationQuantity = reservation.length;
+  return reservationQuantity;
 };
 
 const hideReservation = () => {
@@ -47,7 +55,7 @@ const printReservations = async (e) => {
   });
 };
 
-const showReservation = async (e) => {
+  const showReservation = async (e) => {
   const reservationPopup = document.getElementById('poke_reservation');
   const pokemons = await getId(e.target.id);
   const { name } = pokemons;
@@ -61,6 +69,7 @@ const showReservation = async (e) => {
   const moveTwo = moves[1].move.name;
   const moveThree = moves[2].move.name;
   const moveFour = moves[3].move.name;
+  const counterReservation = await counter(e);
   reservationPopup.innerHTML = null;
   reservationPopup.insertAdjacentHTML('afterbegin', `
   <div class="popup-container">
@@ -97,7 +106,7 @@ const showReservation = async (e) => {
         </div>
       </div>
       <div id="reservation">
-        <h3 class="title">Reservations (2)</h3><br>
+        <h3 class="title">Reservations (${counterReservation || 0})</h3><br>
         <div id="allreservations"></div>
       </div>
        <form id="reservation-form">
